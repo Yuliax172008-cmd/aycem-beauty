@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carrito</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<header>
+<h1><a href="aycem.html">AYCEM BEAUTY</a></h1>
+</header>
+
+<nav>
+<ul class="menu">
+<li><a href="maquillaje.html">Maquillaje</a></li>
+<li><a href="skincare.html">Skincare</a></li>
+<li><a href="perfumes.html">Perfumes</a></li>
+<li><a href="carrito.html">Carrito</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+</nav>
+
+<h2>Tu carrito</h2>
+<ul id="lista"></ul>
+<p><strong>Total: $<span id="total">0</span></strong></p>
+<button onclick="vaciar()">Vaciar carrito</button>
+
+<script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let lista = document.getElementById("lista");
+let total = 0;
+
+function mostrar(){
+lista.innerHTML = "";
+total = 0;
+
+carrito.forEach((item, index)=>{
+let li = document.createElement("li");
+li.innerHTML = item.nombre + " - $" + item.precio +
+" <button onclick='eliminar("+index+")'>Eliminar</button>";
+lista.appendChild(li);
+total += item.precio;
+});
+
+document.getElementById("total").textContent = total;
+}
+
+function eliminar(index){
+carrito.splice(index,1);
+localStorage.setItem("carrito", JSON.stringify(carrito));
+mostrar();
+}
+
+function vaciar(){
+carrito = [];
+localStorage.setItem("carrito", JSON.stringify(carrito));
+mostrar();
+}
+
+mostrar();
+</script>
+
+</body>
+</html>

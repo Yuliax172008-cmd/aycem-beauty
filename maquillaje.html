@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Maquillaje</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<header>
+<h1><a href="aycem.html">AYCEM BEAUTY</a></h1>
+</header>
+
+<nav>
+<ul class="menu">
+<li><a href="maquillaje.html">Maquillaje</a></li>
+<li><a href="skincare.html">Skincare</a></li>
+<li><a href="perfumes.html">Perfumes</a></li>
+<li><a href="carrito.html">Carrito</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+</nav>
+
+<section id="productos">
+
+<article>
+<img src="img/rare.jpg">
+<h3>Rubor Rare Beauty</h3>
+<p>$750</p>
+<button onclick="agregar('Rubor Rare Beauty',750)">Agregar</button>
+</article>
+
+<article>
+<img src="img/dior-gloss.jpg">
+<h3>Gloss Dior</h3>
+<p>$850</p>
+<button onclick="agregar('Gloss Dior',850)">Agregar</button>
+</article>
+
+<article>
+<img src="img/black-honey.jpg">
+<h3>Black Honey Clinique</h3>
+<p>$650</p>
+<button onclick="agregar('Black Honey',650)">Agregar</button>
+</article>
+
+</section>
+
+<script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function guardar(){
+localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function agregar(nombre, precio){
+carrito.push({nombre, precio});
+guardar();
+alert("Producto agregado al carrito 🛒");
+}
+</script>
+
+</body>
+</html>

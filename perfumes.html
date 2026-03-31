@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Perfumes</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<header>
+<h1><a href="aycem.html">AYCEM BEAUTY</a></h1>
+</header>
+
+<nav>
+<ul class="menu">
+<li><a href="maquillaje.html">Maquillaje</a></li>
+<li><a href="skincare.html">Skincare</a></li>
+<li><a href="perfumes.html">Perfumes</a></li>
+<li><a href="carrito.html">Carrito</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+</nav>
+
+<section id="productos">
+
+<article>
+<img src="img/miss-dior.jpg">
+<h3>Miss Dior</h3>
+<p>$2500</p>
+<button onclick="agregar('Miss Dior',2500)">Agregar</button>
+</article>
+
+<article>
+<img src="img/ysl.jpg">
+<h3>yves saint laurent</h3>
+<p>$2300</p>
+<button onclick="agregar('ysl',2300)">Agregar</button>
+</article>
+
+<article>
+<img src="img/chanel.jpg">
+<h3>Chanel Nº5</h3>
+<p>$2999</p>
+<button onclick="agregar('Chanel Nº5',2999)">Agregar</button>
+</article>
+
+<article>
+<img src="img/lancome.jpg">
+<h3>la vida es bella</h3>
+<p>$5000</p>
+<button onclick="agregar('lancome',5000">Agregar</button>
+</article>
+
+<article>
+<img src="img/gucci.jpg">
+<h3>gucci flora</h3>
+<p>$3900</p>
+<button onclick="agregar('gucci',3900)">Agregar</button>
+</article>
+
+</section>
+
+<script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function guardar(){
+localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function agregar(nombre, precio){
+carrito.push({nombre, precio});
+guardar();
+alert("Producto agregado al carrito 🛒");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Skincare</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<header>
+<h1><a href="aycem.html">AYCEM BEAUTY</a></h1>
+</header>
+
+<nav>
+<ul class="menu">
+<li><a href="maquillaje.html">Maquillaje</a></li>
+<li><a href="skincare.html">Skincare</a></li>
+<li><a href="perfumes.html">Perfumes</a></li>
+<li><a href="carrito.html">Carrito</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+</nav>
+
+<section id="productos">
+
+<article>
+<img src="img/ordinary.jpg">
+<h3>The Ordinary Niacinamide</h3>
+<p>$200</p>
+<button onclick="agregar('Niacinamide',200)">Agregar</button>
+</article>
+
+<article>
+<img src="img/glow.jpg">
+<h3>Glow Recipe Watermelon Glow</h3>
+<p>$850</p>
+<button onclick="agregar('Glow Recipe',850)">Agregar</button>
+</article>
+
+<article>
+<img src="img/centella.jpg">
+<h3>jabon limpiador</h3>
+<p>$590</p>
+<button onclick="agregar('centella',590)">Agregar</button>
+</article>
+
+
+<article>
+<img src="img/tocobo.jpg">
+<h3>bloqueador</h3>
+<p>$900</p>
+<button onclick="agregar('tocobo',900)">Agregar</button>
+</article>
+
+
+<article>
+<img src="img/dior.jpg">
+<h3>serum prestige</h3>
+<p>$9000</p>
+<button onclick="agregar('dior',900)">Agregar</button>
+</article>
+
+
+<script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function guardar(){
+localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function agregar(nombre, precio){
+carrito.push({nombre, precio});
+guardar();
+alert("Producto agregado al carrito 🛒");
+}
+</script>
+
+</body>
+</html>
